@@ -1,8 +1,8 @@
-# applied plotting in Python - coursera
+# applied plotting in Python - coursera, general points on course:
 - course is about communicating with managers, executives, stakeholders. Or a journalist.
 - information visualisation: best practices
 - Alberto Cairo (Graphics Lies, Misleading Visuals) and Tufte
-- saved in careers folder, transcripts. Date order downloaded.
+- week 2 context https://www.coursera.org/learn/python-plotting/discussions/weeks/2/threads/7Rh0RAQ1Eee-uQ7R_UJsXg
 
 ## primers: https://www.datacamp.com/community/tutorials/matplotlib-tutorial-python  DONE
 https://www.datacamp.com/courses/intermediate-python-for-data-science DONE
