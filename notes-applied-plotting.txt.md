@@ -4,17 +4,17 @@
 - Alberto Cairo (Graphics Lies, Misleading Visuals) and Tufte
 - saved in careers folder, transcripts. Date order downloaded.
 
--primer: https://www.datacamp.com/community/tutorials/matplotlib-tutorial-python  DONE
+## primers: https://www.datacamp.com/community/tutorials/matplotlib-tutorial-python  DONE
 https://www.datacamp.com/courses/intermediate-python-for-data-science DONE
 todo: (if relevant)
 https://www.datacamp.com/community/tutorials/matplotlib-3d-volumetric-data
 
-###End of May: DONE
+### End of May: DONE
 - readings
 - peer assignment
 - review others
 
-###June:
+### June:
 MatPlotLib.
 - assignments work
 - pandas skills needed. (Might need read up on some of this).
@@ -70,6 +70,17 @@ plt.xscale('log')
 - c= colours... or color=
 - linestyle='--' None etc
 - use also ax.set_title() or ax.set_xlabel() etc
+- Set axis properties [xmin, xmax, ymin, ymax]
+ax.axis([0,6,0,10])
+
+#### useful sanity checks and troubleshooting etc
+- plt.gca().get_children() ... To inspect what objects we have.
+	- e.g # get the legend from the current axes
+legend = plt.gca().get_children()[-2]
+	- # you can use get_children to navigate through the child artists
+legend.get_children()[0].get_children()[1].get_children()[0].get_children()
+- adjust the subplot so the text doesn't run off the image
+plt.subplots_adjust(bottom=0.25)
 
 #### subplots
 One convention is to plot like this:
@@ -85,3 +96,14 @@ Can also use for **small multiples**
 - or if just one row OR column, use a single lsit ref e.f. ax[1].plot()
 - useful options:
 	- , sharey=True
+
+#### misc. notes
+##### fill the area between the linear data and exponential data
+this will paint a fill in an area, eg for conf. intervals etc
+plt.gca().fill_between(range(len(linear_data)), 
+                       linear_data, exponential_data, 
+                       facecolor='blue', 
+                       alpha=0.25)
+#####  bar charts - stacked, horiz
+- Use bar() and specify the bottom= to be the vector of y-values for lower 
+- barh() horizontal; and use hieght not width
