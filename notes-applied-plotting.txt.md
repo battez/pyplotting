@@ -4,10 +4,15 @@
 - Alberto Cairo (Graphics Lies, Misleading Visuals) and Tufte
 - week 2 context https://www.coursera.org/learn/python-plotting/discussions/weeks/2/threads/7Rh0RAQ1Eee-uQ7R_UJsXg
 
-## primers: https://www.datacamp.com/community/tutorials/matplotlib-tutorial-python  DONE
+
+## primers:
+
+https://www.datacamp.com/community/tutorials/matplotlib-tutorial-python  DONE
 https://www.datacamp.com/courses/intermediate-python-for-data-science DONE
 todo: (if relevant)
 https://www.datacamp.com/community/tutorials/matplotlib-3d-volumetric-data
+
+see also https://www.udemy.com/data-analysis-with-pandas/learn/lecture/5579042#overview 
 
 ### End of May: DONE
 - readings
@@ -75,9 +80,9 @@ ax.axis([0,6,0,10])
 
 #### useful sanity checks and troubleshooting etc
 - plt.gca().get_children() ... To inspect what objects we have.
-	- e.g # get the legend from the current axes
+	- e.g get the legend from the current axes
 legend = plt.gca().get_children()[-2]
-	- # you can use get_children to navigate through the child artists
+	- you can use get_children to navigate through the child artists
 legend.get_children()[0].get_children()[1].get_children()[0].get_children()
 - adjust the subplot so the text doesn't run off the image
 plt.subplots_adjust(bottom=0.25)
@@ -107,3 +112,46 @@ plt.gca().fill_between(range(len(linear_data)),
 #####  bar charts - stacked, horiz
 - Use bar() and specify the bottom= to be the vector of y-values for lower 
 - barh() horizontal; and use hieght not width
+
+
+
+
+### Wk2 task grading criteria-
+CSV, NOAA dataset; subset of: https://www1.ncdc.noaa.gov/pub/data/ghcn/daily/readme.txt comprised of daily climate records from thousands of land surface stations across the globe.
+
+id : station identification code
+date : date in YYYY-MM-DD format (e.g. 2012-01-24 = January 24, 2012)
+element : indicator of element type
+TMAX : Maximum temperature (tenths of degrees C)
+TMIN : Minimum temperature (tenths of degrees C)
+value : data value for element (tenths of degrees C)
+
+Read the documentation and familiarize yourself with the dataset, then write some python code:
+1. which returns a line graph of the record high and record low temperatures by day of the year over the period 2005-2014. 
+	- vectors: cleanup (remove 29th Feb, other)
+	- groupby day-month bit (make new col with this first)
+	- each daydate from daterange lineplot: filter high , vector filter low and highest/lowest of ten values.
+	- 365 pts therefore 
+The area between the record high and record low temperatures for each day should be shaded.
+	
+
+2. 
+Overlay a scatter of the 2015 data for any points (highs and lows) for which the ten year record (2005-2014) record high or record low was broken in 2015.
+- find max and min for first period, then filter on these for set points for scatter.
+
+3. Watch out for leap days (i.e. February 29th), it is reasonable to remove these points from the dataset for the purpose of this visualization.
+
+4. Make the visual nice! Leverage principles from the first module in this course when developing your solution. Consider issues such as legends, labels, and chart junk.
+
+refers to: 
+https://www.coursera.org/learn/python-data-analysis/home/week/3 
+
+
+## pandas
+### missing values
+- pd.isnull(myObj) OR pd.notnull(myObj)
+- for a Series can also use 
+mySeries.isnull() # returns boolean for each index etc.
+
+
+
