@@ -1,3 +1,14 @@
+
+### quick plots
+http://queirozf.com/entries/pandas-dataframe-plot-examples-with-matplotlib-pyplot
+(Stacked bars and group bys)
+
+http://jonathansoma.com/lede/algorithms-2017/classes/fuzziness-matplotlib/how-pandas-uses-matplotlib-plus-figures-axes-and-subplots/
+
+https://pstblog.com/2016/10/04/stacked-charts
+
+
+
 # applied plotting in Python - coursera, general points on course:
 - course is about communicating with managers, executives, stakeholders. Or a journalist.
 - information visualisation: best practices
@@ -6,6 +17,13 @@
 
 
 ## primers:
+Fabio Nelli book is excellent.
+
+nice blogs: https://www.marsja.se/python-pandas-groupby-tutorial-examples/
+https://chrisalbon.com
+
+good for pandas common tasks etc
+http://www.datasciencemadesimple.com/get-number-rows-number-columns-pandas-dataframe-python/
 
 https://www.datacamp.com/community/tutorials/matplotlib-tutorial-python  DONE
 https://www.datacamp.com/courses/intermediate-python-for-data-science DONE
@@ -13,18 +31,6 @@ todo: (if relevant)
 https://www.datacamp.com/community/tutorials/matplotlib-3d-volumetric-data
 
 see also https://www.udemy.com/data-analysis-with-pandas/learn/lecture/5579042#overview 
-
-### End of May: DONE
-- readings
-- peer assignment
-- review others
-
-### June:
-MatPlotLib.
-- assignments work
-- pandas skills needed. (Might need read up on some of this).
-- small project at end. Extend matplotlib. 
-- peer review. 
 
 ## Misleading Graphics
 1. Hiding relevant data to highlight what benefits us (Favourableness)
@@ -34,7 +40,7 @@ MatPlotLib.
 ## matplotlib ~ week 2 
 - MATLAB origins
 - getter setter conventions
-- different backends (rendering configs to different end-uses): interactive notebook "inline" is used.
+- different backends (rendering configs to different end-uses): interactive notebook "inline" is used. Also use "widget" in jupyterLab.
 
 ### Artists paradigm for drawing 
 - two layers in mpl: backend and artists
@@ -70,6 +76,12 @@ plt.xscale('log')
 - clean a plot up anew: plt.clf()
 - plt.grid(True)
 
+- instead of gca() can use 
+
+```python
+fig1 = plt.figure()
+ax1 = fig1.add_subplot(111)
+```
 #### Plot() options
 - marker='o'
 - c= colours... or color=
@@ -114,44 +126,12 @@ plt.gca().fill_between(range(len(linear_data)),
 - barh() horizontal; and use hieght not width
 
 
-
-
-### Wk2 task grading criteria-
-CSV, NOAA dataset; subset of: https://www1.ncdc.noaa.gov/pub/data/ghcn/daily/readme.txt comprised of daily climate records from thousands of land surface stations across the globe.
-
-id : station identification code
-date : date in YYYY-MM-DD format (e.g. 2012-01-24 = January 24, 2012)
-element : indicator of element type
-TMAX : Maximum temperature (tenths of degrees C)
-TMIN : Minimum temperature (tenths of degrees C)
-value : data value for element (tenths of degrees C)
-
-Read the documentation and familiarize yourself with the dataset, then write some python code:
-1. which returns a line graph of the record high and record low temperatures by day of the year over the period 2005-2014. 
-	- vectors: cleanup (remove 29th Feb, other)
-	- groupby day-month bit (make new col with this first)
-	- each daydate from daterange lineplot: filter high , vector filter low and highest/lowest of ten values.
-	- 365 pts therefore 
-The area between the record high and record low temperatures for each day should be shaded.
-	
-
-2. 
-Overlay a scatter of the 2015 data for any points (highs and lows) for which the ten year record (2005-2014) record high or record low was broken in 2015.
-- find max and min for first period, then filter on these for set points for scatter.
-
-3. Watch out for leap days (i.e. February 29th), it is reasonable to remove these points from the dataset for the purpose of this visualization.
-
-4. Make the visual nice! Leverage principles from the first module in this course when developing your solution. Consider issues such as legends, labels, and chart junk.
-
-refers to: 
-https://www.coursera.org/learn/python-data-analysis/home/week/3 
-
-
 ## pandas
 ### missing values
 - pd.isnull(myObj) OR pd.notnull(myObj)
 - for a Series can also use 
 mySeries.isnull() # returns boolean for each index etc.
 
-
+## numpy notes
+- distribution generation nice primer: https://www.sharpsightlabs.com/blog/numpy-random-normal/ 
 
